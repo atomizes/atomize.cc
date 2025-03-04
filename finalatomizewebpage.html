@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atom's Links</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Link to Audiowide, Orbitron, and Sigmar fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&family=Sigmar&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://previews.dropbox.com/p/thumb/ACnHioqrpJotU6GYA0RRIgVRGq9_KQdbB_jxx-ksi_d3wQ3lBzOuuCIrXFBVcu-Bmqx15dS7LA-7GKi3BOxPt1Niu6RqXK0AtBLt2DwvEKwlclXvI7HXmCHomu7oniSBvlLk7Gg6i8HinfKaI_L0Ef1g9InnjZbylRxWt5JOxUvnpxXFzaLGTtB1dEG5JgcEvoVrEuVMgNnVNdpObLmGSI0fgGwM8t8P6iVMs03InnsJn_-S3d7rwxFpbqSMmIQMBnqbFN5F-tJi_LonRPfNbigQZ7TcZRrIkQBxmg-dzZ8uAM1shiF2yAk3dQ-GR0H0zEemQ68D2tsGOBrj1TYSMKhZ/p.png?is_prewarmed=true" type="image/png" sizes="16x16">
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Audiowide", serif; /* Applying Audiowide font globally */
+            text-align: center;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            border: none;
+        }
+
+        /* Profile Picture */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            margin-bottom: 5px; /* Reduced margin-bottom */
+            transform: translateY(40px);
+            opacity: 0;
+            animation: profileIn 1s forwards;
+            box-shadow: 0 0 15px 5px rgba(169, 169, 169, 0.7); /* Always-on glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        @keyframes profileIn {
+            0% { transform: translateY(40px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Profile Picture Hover Effect */
+        .profile-img:hover {
+            transform: scale(1.1); /* Zoom effect */
+            box-shadow: 0 0 25px 10px rgba(169, 169, 169, 1); /* Glowing on hover */
+        }
+
+        /* Name Styling */
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-top: 5px; /* Reduced margin-top */
+            margin-bottom: 15px; /* Reduced margin-bottom */
+            opacity: 0;
+            animation: fadeInText 1s forwards 0.5s;
+            text-shadow: 0 0 15px rgba(169, 169, 169, 0.7); /* Always-on glow around name */
+        }
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Links Styling */
+        .links {
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px; /* Adjusted margin-bottom */
+            opacity: 0;
+            animation: fadeInLinks 1s forwards 1s;
+        }
+        @keyframes fadeInLinks {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .link-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px; /* Reduced margin-bottom */
+            border-radius: 50px;
+            font-size: 1.1em; /* Slightly smaller text */
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 4px 4px 8px rgba(169, 169, 169, 0.5); /* Light gray shadow */
+        }
+
+        .link-box:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: translateY(-5px);
+        }
+
+        .link-box a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Email Styling */
+        .email {
+            font-size: 1.2em;
+            margin-bottom: 10px; /* Reduced margin-bottom to bring email closer */
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeInText 1s forwards 1.5s;
+        }
+
+        .email a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Sigmar Font Class */
+        .sigmar-regular {
+            font-family: "Sigmar", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Orbitron Font Class (used for specific weight) */
+        .orbitron-custom {
+            font-family: "Orbitron", serif;
+            font-optical-sizing: auto;
+            font-weight: 700; /* Example weight, can be adjusted */
+            font-style: normal;
+        }
+
+        /* Audiowide Font Class */
+        .audiowide-regular {
+            font-family: "Audiowide", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="https://cdn.pixabay.com/video/2022/10/10/134252-758855560_large.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Profile Picture -->
+    <img src="https://previews.dropbox.com/p/thumb/ACmU3R9l2xtU9NJvqRzKTcKxf3Euqc31fU0bDN8yg99bYftiA29JC9BxgxnWhmHhb1qC6iAuEMalyJWHLalw7GWVHNbGN5c7rt2QeXOOH8F9pRzJ2MZ3EDEzt5aIwF6rp7Pkter7avJiXeWb_yPpnbkbXZtctLkHxMXEsfQnUTmvKyTO5nQ-1-7F1dezCtlPipoYOu95kEEcI74FhQxQFSSUepSgPkeE7FgBuudZwfVJ7n9e0gmZc-ezINFBQVNl54AiiFbWnBPAj7aVUlqppwue1vRr1_-oMKkr0D3uitq0WYVfS-1hWdlWXJ4LodFj4Ie1Rv8oqodN_mbwhzS9VSYv/p.png?is_prewarmed=true" alt="Atom's Profile Picture" class="profile-img">
+    
+    <!-- Name -->
+    <h1 class="audiowide-regular">Atom</h1>
+    
+    <!-- Links -->
+    <div class="links">
+        <div class="link-box orbitron-custom">
+            <a href="https://www.pinterest.com/atomic/" target="_blank">Pinterest (@atomic)</a>
+        </div>
+        <div class="link-box orbitron-custom">
+            <a href="https://medal.tv/u/atom" target="_blank">Medal.tv (@atom)</a>
+        </div>
+        <div class="link-box orbitron-custom">
+            <a href="https://vsco.co/atom/gallery" target="_blank">VSCO (@atom)</a>
+        </div>
+        <div class="link-box orbitron-custom">
+            <a href="https://poshmark.com/closet/atom" target="_blank">Poshmark (@atom)</a>
+        </div>
+        <div class="link-box orbitron-custom">
+            <a href="https://medium.com/@atom" target="_blank">Medium (@atom)</a>
+        </div>
+        <div class="link-box orbitron-custom">
+            <a href="https://myspace.com/atomic" target="_blank">MySpace (@atomic)</a>
+        </div>
+    </div>
+    
+    <!-- Email -->
+    <div class="email">
+        <a href="mailto:atomize@duck.com">atomize @duck.com</a>
+    </div>
+</body>
+</html>
